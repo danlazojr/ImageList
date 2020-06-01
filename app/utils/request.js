@@ -29,6 +29,9 @@ function checkStatus(response) {
   throw error;
 }
 
+export const errorHandler = error => {
+  throw error;
+};
 /**
  * Requests a URL, returning a promise
  *
@@ -40,5 +43,6 @@ function checkStatus(response) {
 export default function request(url, options) {
   return fetch(url, options)
     .then(checkStatus)
-    .then(parseJSON);
+    .then(parseJSON)
+    .catch(errorHandler);
 }

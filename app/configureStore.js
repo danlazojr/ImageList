@@ -1,7 +1,7 @@
 /**
  * Create the store with dynamic reducers
  */
-
+import { fromJS } from 'immutable';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
 import createSagaMiddleware from 'redux-saga';
@@ -38,7 +38,7 @@ export default function configureStore(initialState = {}, history) {
 
   const store = createStore(
     createReducer(),
-    initialState,
+    fromJS(initialState),
     composeEnhancers(...enhancers),
   );
 

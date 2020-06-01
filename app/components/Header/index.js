@@ -1,29 +1,46 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { FormattedMessage } from 'react-intl';
-
-import A from './A';
-import Img from './Img';
-import NavBar from './NavBar';
-import HeaderLink from './HeaderLink';
-import Banner from './banner.jpg';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import GridContainer from 'components/GridContainer';
+import GridItem from 'components/GridItem';
+import { compose } from 'redux';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { MdLineWeight } from 'react-icons/md';
+import styles from './styles';
 import messages from './messages';
 
-function Header() {
-  return (
-    <div>
-      <A href="https://www.reactboilerplate.com/">
-        <Img src={Banner} alt="react-boilerplate - Logo" />
-      </A>
-      <NavBar>
-        <HeaderLink to="/">
-          <FormattedMessage {...messages.home} />
-        </HeaderLink>
-        <HeaderLink to="/features">
-          <FormattedMessage {...messages.features} />
-        </HeaderLink>
-      </NavBar>
-    </div>
-  );
+export class Header extends PureComponent {
+  render = () => {
+    const { classes } = this.props;
+    return (
+      <GridContainer>
+        <GridItem className={classes.gridMain}>
+          <AppBar position="static">
+            <Toolbar>
+              <IconButton edge="start" color="inherit" aria-label="menu">
+                <MdLineWeight />
+                <Link to="/list" className={classes.link}>
+                  <Typography variant="h7">
+                    <FormattedMessage {...messages.imgaeList} />
+                  </Typography>
+                </Link>
+              </IconButton>
+            </Toolbar>
+          </AppBar>
+        </GridItem>
+      </GridContainer>
+    );
+  };
 }
-
-export default Header;
+Header.propTypes = {
+  // hoc props
+  classes: PropTypes.object.isRequired,
+  // parent props
+};
+// export default Header;
+export default compose(withStyles(styles, { name: 'Header' }))(Header);
