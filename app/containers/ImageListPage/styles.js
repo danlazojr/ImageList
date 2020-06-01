@@ -1,13 +1,8 @@
 const styles = {
   content: {
     width: 683,
-    height: 517,
+    height: 550,
     padding: 12,
-    '&:hover': {
-      border: '1px solid #9fdbfb',
-      backgroundColor: '#f1f8ff',
-      zIndex: 2,
-    },
   },
   title: {
     fontSize: 20,
@@ -19,6 +14,18 @@ const styles = {
   },
   gridMain: {
     flex: 1,
+  },
+  view: {
+    fontSize: 13,
+    textTransform: 'uppercase',
+    fontWeight: 700,
+    color: '#3852f7',
+    textDecoration: 'none',
+    '&:hover': {
+      border: '1px solid #9fdbfb',
+      backgroundColor: '#f1f8ff',
+      zIndex: 2,
+    },
   },
 };
 

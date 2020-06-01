@@ -23,8 +23,19 @@ const styles = {
   },
   link: {
     textDecoration: 'none',
-    color: 'white',
+    color: 'black',
     fontSize: 16,
+  },
+  arrImg: {
+    width: 100,
+    height: 17,
+  },
+  item: {
+    paddingLeft: 25,
+    paddingRight: 7,
+    fontSize: '.875rem',
+    color: 'black',
+    textDecoration: 'none',
   },
 };
 

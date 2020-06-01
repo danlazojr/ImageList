@@ -1,18 +1,19 @@
 import React, { PureComponent } from 'react';
-import { FormattedMessage } from 'react-intl';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 import GridContainer from 'components/GridContainer';
 import GridItem from 'components/GridItem';
 import { compose } from 'redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { MdLineWeight } from 'react-icons/md';
+// import { Hidden } from 'components/material-ui';
+import Hidden from '@material-ui/core/Hidden';
+import Logo from 'images/adrenalin.svg';
 import styles from './styles';
-import messages from './messages';
 
 export class Header extends PureComponent {
   render = () => {
@@ -20,16 +21,60 @@ export class Header extends PureComponent {
     return (
       <GridContainer>
         <GridItem className={classes.gridMain}>
-          <AppBar position="static">
+          <AppBar position="static" color="transparent">
             <Toolbar>
-              <IconButton edge="start" color="inherit" aria-label="menu">
-                <MdLineWeight />
-                <Link to="/list" className={classes.link}>
-                  <Typography variant="h7">
-                    <FormattedMessage {...messages.imgaeList} />
-                  </Typography>
-                </Link>
-              </IconButton>
+              <GridContainer justify="space-between">
+                <GridItem>
+                  <img src={Logo} alt="" className={classes.arrImg} />
+                </GridItem>
+                <GridItem>
+                  <Hidden mdUp>
+                    <GridItem>
+                      <Button
+                        variant="inline"
+                        className={classes.button}
+                        color="secondary"
+                      >
+                        <MdLineWeight />
+                      </Button>
+                    </GridItem>
+                  </Hidden>
+                  <Hidden smDown>
+                    <GridContainer>
+                      <GridItem>
+                        <Link to="/list" className={classes.item}>
+                          <Typography variant="h7">Culture</Typography>
+                        </Link>
+                      </GridItem>
+                      <GridItem>
+                        <Link to="/list" className={classes.item}>
+                          <Typography variant="h7">Work</Typography>
+                        </Link>
+                      </GridItem>
+                      <GridItem>
+                        <Link to="/list" className={classes.item}>
+                          <Typography variant="h7">Clients</Typography>
+                        </Link>
+                      </GridItem>
+                      <GridItem>
+                        <Link to="/list" className={classes.item}>
+                          <Typography variant="h7">Services</Typography>
+                        </Link>
+                      </GridItem>
+                      <GridItem>
+                        <Link to="/list" className={classes.item}>
+                          <Typography variant="h7">Careers</Typography>
+                        </Link>
+                      </GridItem>
+                      <GridItem>
+                        <Link to="/list" className={classes.item}>
+                          <Typography variant="h7">Contact</Typography>
+                        </Link>
+                      </GridItem>
+                    </GridContainer>
+                  </Hidden>
+                </GridItem>
+              </GridContainer>
             </Toolbar>
           </AppBar>
         </GridItem>

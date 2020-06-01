@@ -14,6 +14,6 @@ export default defineMessages({
   },
   imgaeList: {
     id: `${scope}.imageList`,
-    defaultMessage: 'Image List',
+    defaultMessage: 'ADRENALIN',
   },
 });

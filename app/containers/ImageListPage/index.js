@@ -13,6 +13,7 @@ import GridContainer from 'components/GridContainer';
 import GridItem from 'components/GridItem';
 import H3 from 'components/H3';
 import request from 'utils/request';
+import { Link } from 'react-router-dom';
 import qs from 'qs';
 import styles from './styles';
 import Detail from './components/detail';
@@ -79,6 +80,16 @@ export class ImageListPage extends PureComponent {
               </GridItem>
               <GridItem>
                 <H3 className={classes.title}>{titleLong}</H3>
+              </GridItem>
+              <GridItem>
+                <Link to={`/list?id=${id}`} className={classes.view}>
+                  <GridContainer>
+                    <GridItem>
+                      <hr style={{ width: 32 }} />
+                    </GridItem>
+                    <GridItem>VIEW CASE STUDY</GridItem>
+                  </GridContainer>
+                </Link>
               </GridItem>
             </GridContainer>
           </GridItem>
