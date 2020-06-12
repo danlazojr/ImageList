@@ -25,9 +25,6 @@ export class Header extends PureComponent {
             <Toolbar>
               <GridContainer justify="space-between">
                 <GridItem>
-                  <img src={Logo} alt="" className={classes.arrImg} />
-                </GridItem>
-                <GridItem>
                   <Hidden mdUp>
                     <GridItem>
                       <Button
